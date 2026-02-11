@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿悦很严格 | AI & 3D Printing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Orbitron:wght@400;500;600;700;900&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-secondary: #0f141a;
+            --bg-tertiary: #141a21;
+            --text-primary: #ffffff;
+            --text-secondary: #8892a0;
+            --gold: #d4a84b;
+            --gold-light: #f4d6a3;
+            --gold-dark: #a67c3e;
+            --gold-gradient: linear-gradient(135deg, #f4d6a3 0%, #d4a84b 50%, #a67c3e 100%);
+            --cyan: #00e5ff;
+            --cyan-glow: rgba(0, 229, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 动态网格背景 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(212, 168, 75, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 168, 75, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* 导航 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(10,14,20,0.95), transparent);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 168, 75, 0.1);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1200'%3E%3Cdefs%3E%3ClinearGradient id='lineGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23d4a84b;stop-opacity:0.1'/%3E%3Cstop offset='100%25' style='stop-color:%23d4a84b;stop-opacity:0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 600 L400 400 L800 800 L1200 600' stroke='url(%23lineGrad)' stroke-width='1' fill='none'/%3E%3Cpath d='M0 800 L300 600 L600 900 L900 700 L1200 900' stroke='url(%23lineGrad)' stroke-width='0.5' fill='none'/%3E%3C/svg%3E") center/cover no-repeat;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            background: rgba(212, 168, 75, 0.05);
+            position: relative;
+        }
+
+        .hero-badge::before,
+        .hero-badge::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 1px;
+            background: var(--gold);
+            top: 50%;
+        }
+
+        .hero-badge::before {
+            left: -12px;
+        }
+
+        .hero-badge::after {
+            right: -12px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 8px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        .hero-tagline {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            padding: 2rem;
+            border-left: 2px solid var(--gold);
+            text-align: left;
+            background: rgba(212, 168, 75, 0.03);
+        }
+
+        .hero-motto {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            font-style: italic;
+            letter-spacing: 2px;
+            position: relative;
+            padding-top: 2rem;
+        }
+
+        .hero-motto::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        /* 装饰线条 */
+        .deco-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .deco-line {
+            position: absolute;
+            background: var(--gold-gradient);
+        }
+
+        .deco-line-1 {
+            width: 300px;
+            height: 1px;
+            top: 20%;
+            left: 10%;
+            transform: rotate(-15deg);
+            opacity: 0.4;
+        }
+
+        .deco-line-2 {
+            width: 200px;
+            height: 1px;
+            bottom: 25%;
+            right: 15%;
+            transform: rotate(20deg);
+            opacity: 0.3;
+        }
+
+        .deco-line-3 {
+            width: 1px;
+            height: 200px;
+            top: 30%;
+            right: 25%;
+            opacity: 0.3;
+        }
+
+        .deco-line-4 {
+            width: 250px;
+            height: 1px;
+            top: 40%;
+            left: 20%;
+            opacity: 0.2;
+        }
+
+        /* 核心业务 */
+        .business {
+            padding: 10rem 4rem;
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid rgba(212, 168, 75, 0.3);
+            background: rgba(212, 168, 75, 0.05);
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 400;
+            line-height: 1.2;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .business-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .business-card {
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border: 1px solid rgba(212, 168, 75, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .business-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold-gradient);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .business-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 60px rgba(212, 168, 75, 0.15);
+        }
+
+        .business-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .business-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: rgba(212, 168, 75, 0.08);
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            line-height: 1;
+        }
+
+        .business-icon {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .business-icon::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px solid var(--gold);
+            opacity: 0.2;
+        }
+
+        .business-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .business-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* 特性展示 */
+        .features {
+            padding: 10rem 4rem;
+            background: var(--bg-primary);
+            position: relative;
+        }
+
+        .features-grid {
+            max-width: 1400px;
+            margin: 5rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            border-left: 2px solid rgba(212, 168, 75, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            border-color: var(--gold);
+            background: rgba(212, 168, 75, 0.02);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 1px solid var(--gold);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--gold);
+            opacity: 0.3;
+        }
+
+        .feature-content h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 10rem 4rem;
+            background: var(--bg-secondary);
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-motto {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--gold-light);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            position: relative;
+            padding: 3rem;
+        }
+
+        .contact-motto::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.2;
+            line-height: 1;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .contact-note {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 4rem;
+            background: var(--bg-tertiary);
+            border-top: 1px solid rgba(212, 168, 75, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(212, 168, 75, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--bg-primary);
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 1.5s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .business-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero,
+            .business,
+            .features,
+            .contact {
+                padding: 6rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">AYUE</div>
+        <ul class="nav-links">
+            <li><a href="#business">业务</a></li>
+            <li><a href="#features">特色</a></li>
+            <li><a href="#contact">理念</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="deco-lines">
+            <div class="deco-line deco-line-1"></div>
+            <div class="deco-line deco-line-2"></div>
+            <div class="deco-line deco-line-3"></div>
+            <div class="deco-line deco-line-4"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">AI & 3D Printing</div>
+            <h1>阿悦很严格</h1>
+            <p class="hero-subtitle">AI Technology · Self-Media · 3D Printing</p>
+            <div class="hero-tagline">
+                专注于AI技术科普、AI营销服务与3D打印创新应用，用科技赋能创意，用严谨的态度呈现最前沿的技术实践。
+            </div>
+            <p class="hero-motto">AI 路漫漫，请期待我发回来的实时报道</p>
+        </div>
+    </section>
+
+    <section class="business" id="business">
+        <div class="section-header">
+            <div class="section-label">Core Business</div>
+            <h2 class="section-title">核心业务</h2>
+        </div>
+
+        <div class="business-grid">
+            <div class="business-card">
+                <span class="business-number">01</span>
+                <div class="business-icon">🤖</div>
+                <h3 class="business-title">AI技术科普自媒体</h3>
+                <p class="business-desc">深度解析人工智能前沿技术，用通俗易懂的语言讲述复杂概念，让每个人都能理解并拥抱AI时代。</p>
+            </div>
+
+            <div class="business-card">
+                <span class="business-number">02</span>
+                <div class="business-icon">📊</div>
+                <h3 class="business-title">AI营销服务</h3>
+                <p class="business-desc">利用AI技术为品牌提供精准营销解决方案，从内容生成到用户画像，用数据驱动营销决策。</p>
+            </div>
+
+            <div class="business-card">
+                <span class="business-number">03</span>
+                <div class="business-icon">🖨️</div>
+                <h3 class="business-title">3D打印创新应用</h3>
+                <p class="business-desc">探索3D打印技术在各领域的创新应用，从原型设计到批量生产，让想象变为现实。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-header">
+            <div class="section-label">Why Us</div>
+            <h2 class="section-title">特色优势</h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">✨</div>
+                <div class="feature-content">
+                    <h3>前沿视角</h3>
+                    <p>始终站在技术最前沿，第一时间带来最新动态和深度分析</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-content">
+                    <h3>精准定位</h3>
+                    <p>深入了解目标受众，精准传达信息，打造有影响力的内容</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">💡</div>
+                <div class="feature-content">
+                    <h3>创新思维</h3>
+                    <p>跨界融合AI、自媒体与3D打印，创造独特的内容价值</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🔬</div>
+                <div class="feature-content">
+                    <h3>严谨态度</h3>
+                    <p>以科学精神对待每一个技术，确保信息的准确性与专业性</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <div class="section-label">Our Philosophy</div>
+            <h2 class="section-title" style="margin-bottom: 3rem;">品牌理念</h2>
+            <div class="contact-motto">
+                AI路漫漫，请期待我发回来的实时报道
+            </div>
+            <p class="contact-note">
+                在这条充满未知的道路上，我们用严谨的态度和创新的思维，为你带来最真实、最前沿的AI与3D打印技术内容。
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-left">
+            <div class="footer-brand">AYUE</div>
+            <div class="copyright">© 2025 阿悦很严格. All rights reserved.</div>
+        </div>
+        <div class="footer-right">
+            <a href="#" class="social-link">𝕏</a>
+            <a href="#" class="social-link">▶</a>
+            <a href="#" class="social-link">in</a>
+        </div>
+    </footer>
+</body>
+</html>
