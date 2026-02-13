@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿悦扫地机器人2026年传播策划案 🚀</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header .tagline {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+
+        .header .meta-item {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(90deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+            border-left: 5px solid #667eea;
+            border-radius: 10px;
+        }
+
+        /* Cards */
+        .card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.2);
+        }
+
+        /* Persona Cards */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .persona-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid #667eea;
+            box-shadow: 0 5px 20px rgba(102,126,234,0.15);
+        }
+
+        .persona-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .persona-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .persona-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        table th,
+        table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102,126,234,0.3);
+        }
+
+        .stat-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 30px 0;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 2px 10px rgba(102,126,234,0.3);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 25px;
+            width: 2px;
+            height: calc(100% - 25px);
+            background: #667eea;
+            opacity: 0.3;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-quarter {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            color: #666;
+        }
+
+        /* Highlight Boxes */
+        .highlight {
+            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #667eea;
+        }
+
+        .highlight h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 3px;
+            font-weight: 500;
+        }
+
+        .tag-success {
+            background: #28a745;
+        }
+
+        .tag-warning {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .tag-danger {
+            background: #dc3545;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            padding: 10px 0 10px 40px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+
+        /* Emoji sections */
+        .emoji-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .emoji-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        /* Budget visualization */
+        .budget-bar {
+            height: 30px;
+            background: #e6e6e6;
+            border-radius: 15px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .budget-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            margin: 30px 0;
+        }
+
+        .comparison-table .vs-badge {
+            background: #ffc107;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 900;
+            font-size: 18px;
+            display: inline-block;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Fun sections */
+        .fun-fact {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        .meme-box {
+            background: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .meme-box p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .meme-box .meme-emoji {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .header {
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .stat-box {
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🚀 阿悦扫地机器人 2026年传播策划案</h1>
+            <p class="tagline">让清洁成为享受，让家更自由！✨</p>
+            <div class="meta">
+                <span class="meta-item">📅 制定时间：2026年1月</span>
+                <span class="meta-item">🎯 核心产品：Ryue灰尘终结者</span>
+                <span class="meta-item">💰 年度预算：1.47亿</span>
+                <span class="meta-item">🔥 目标销售额：2亿</span>
+            </div>
+        </div>
+
+        <!-- 核心数据概览 -->
+        <div class="section">
+            <h2 class="section-title">📊 核心目标（一眼看懂）</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-number">2亿</div>
+                    <div class="stat-label">年度销售额目标</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-number">8万台</div>
+                    <div class="stat-label">年度销量目标</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number">10万+</div>
+                    <div class="stat-label">累计用户</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-number">95%+</div>
+                    <div class="stat-label">好评率目标</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 品牌定位 -->
+        <div class="section">
+            <h2 class="section-title">🎯 我们是谁？</h2>
+            
+            <div class="highlight">
+                <h3>💡 品牌主张："悦享洁净，智驭未来"</h3>
+                <p>我们不是一台冷冰冰的机器，我们是你家里的贴心小助手！</p>
+            </div>
+
+            <div class="card">
+                <h3>🎨 品牌DNA</h3>
+                <p><span class="tag">新锐</span>
+                   <span class="tag">年轻</span>
+                   <span class="tag">时尚</span>
+                   <span class="tag">有温度</span></p>
+                <p style="margin-top: 15px;">我们不一样！我们是90后、00后的扫地机！</p>
+            </div>
+
+            <div class="meme-box">
+                <div class="meme-emoji">🤖💬</div>
+                <p>"我，阿悦扫地机器人，<br>不为清洁而生，<br>只为你而存在！"</p>
+            </div>
+        </div>
+
+        <!-- 目标客户 -->
+        <div class="section">
+            <h2 class="section-title">👥 我们的服务对象（精准画像）</h2>
+            
+            <div class="persona-grid">
+                <div class="persona-card">
+                    <div class="persona-icon">💼</div>
+                    <div class="persona-name">新锐白领</div>
+                    <p style="margin-bottom: 10px;">占比：40%</p>
+                    <span class="persona-tag">25-35岁</span>
+                    <span class="persona-tag">月入2-5万</span>
+                    <span class="persona-tag">追求效率</span>
+                    <p style="margin-top: 15px; color: #666;">
+                        💡 "996哪有时间扫地？<br>
+                        把时间花在更重要的事情上！"
+                    </p>
+                </div>
+
+                <div class="persona-card">
+                    <div class="persona-icon">🐱</div>
+                    <div class="persona-name">有宠家庭</div>
+                    <p style="margin-bottom: 10px;">占比：35%</p>
+                    <span class="persona-tag">28-40岁</span>
+                    <span class="persona-tag">猫狗双全</span>
+                    <span class="persona-tag">毛发困扰</span>
+                    <p style="margin-top: 15px; color: #666;">
+                        💡 "猫毛满天飞？<br>
+                        地毯永远扫不干净？<br>
+                        阿悦来帮你搞定！"
+                    </p>
+                </div>
+
+                <div class="persona-card">
+                    <div class="persona-icon">✨</div>
+                    <div class="persona-name">精致白领</div>
+                    <p style="margin-bottom: 10px;">占比：25%</p>
+                    <span class="persona-tag">30-45岁</span>
+                    <span class="persona-tag">品质生活</span>
+                    <span class="persona-tag">挑剔</span>
+                    <p style="margin-top: 15px; color: #666;">
+                        💡 "生活要精致，<br>
+                        清洁更要精致！<br>
+                        55dB静音，宝宝安睡无忧！"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产品策略 -->
+        <div class="section">
+            <h2 class="section-title">🎁 Ryue灰尘终结者 - 核心卖点</h2>
+            
+            <div class="emoji-section">
+                <h3>🔥 技术黑科技</h3>
+                <ul>
+                    <li><strong>双导航系统：</strong>LDS激光雷达 + vSLAM视觉导航 📡 + 👁️</li>
+                    <li><strong>AI智能避障：</strong>电线？拖鞋？宠物粪便？通通避开！🚫</li>
+                    <li><strong>6000Pa大吸力：</strong>灰尘无处可逃，比吸尘器还猛！💪</li>
+                    <li><strong>55dB超静音：</strong>图书馆级静音，宝宝安睡无忧！😴</li>
+                    <li><strong>60天免清理：</strong>自动集尘，解放双手两个月！🙌</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🎯 场景化功能</h3>
+                <ul>
+                    <li><span class="tag tag-success">🐱 宠物模式</span> 毛发克星，告别毛发困扰</li>
+                    <li><span class="tag tag-warning">👶 母婴模式</span> 静音运行，无尘杀菌</li>
+                    <li><span class="tag tag-danger">🧹 深度模式</span> 顽固污渍，一扫而光</li>
+                    <li><span class="tag">⚡ 快速模式</span> 日常保洁，高效便捷</li>
+                </ul>
+            </div>
+
+            <div class="comparison-table">
+                <div class="vs-badge">阿悦 VS 竞品 💪</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>项目</th>
+                            <th>阿悦</th>
+                            <th>石头</th>
+                            <th>追觅</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>品牌定位</td>
+                            <td><strong>新锐年轻 👦</strong></td>
+                            <td>技术极客 🤓</td>
+                            <td>性价比 💰</td>
+                        </tr>
+                        <tr>
+                            <td>双导航</td>
+                            <td>✅ ✅</td>
+                            <td>✅ ❌</td>
+                            <td>✅ ❌</td>
+                        </tr>
+                        <tr>
+                            <td>AI避障</td>
+                            <td>✅ 🎯</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>静音分贝</td>
+                            <td><strong>55dB 🤫</strong></td>
+                            <td>58dB</td>
+                            <td>60dB</td>
+                        </tr>
+                        <tr>
+                            <td>60天集尘</td>
+                            <td>✅ 🎉</td>
+                            <td>30天</td>
+                            <td>45天</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight">
+                <h3>💰 产品定价</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>版本</th>
+                            <th>定价</th>
+                            <th>定位</th>
+                            <th>对标</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>标准版</td>
+                            <td><strong>3499元</strong></td>
+                            <td>性价比之王 🔥</td>
+                            <td>石头G10</td>
+                        </tr>
+                        <tr>
+                            <td>Pro版</td>
+                            <td><strong>4999元</strong></td>
+                            <td>旗舰产品 👑</td>
+                            <td>石头P10</td>
+                        </tr>
+                        <tr>
+                            <td>Max版</td>
+                            <td><strong>6999元</strong></td>
+                            <td>极致体验 🏆</td>
+                            <td>行业标杆</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 全年节奏 -->
+        <div class="section">
+            <h2 class="section-title">📅 全年节奏（步步为营）</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-quarter">Q1（1-3月）</div>
+                    <div class="timeline-title">🎉 品牌认知期："阿悦，让家更自由"</div>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>建立品牌认知，让大家都知道阿悦是谁！</li>
+                            <li>积累种子用户，培养第一批铁粉！</li>
+                            <li>KPI：品牌搜索量提升500%，社交媒体粉丝50万</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-quarter">Q2（4-6月）</div>
+                    <div class="timeline-title">🚀 产品爆发期："灰尘终结者，让家一尘不染"</div>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>618大促爆发，打造爆款！</li>
+                            <li>让阿悦成为2026年最火的扫地机！</li>
+                            <li>KPI：618销售额5000万，月销量TOP10</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-quarter">Q3（7-9月）</div>
+                    <div class="timeline-title">💬 口碑深化期："真实体验，用户说好才是好"</div>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>用户口碑积累，让好产品自己说话！</li>
+                            <li>提升复购率，培养忠诚用户！</li>
+                            <li>KPI：好评率95%+，复购率15%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-quarter">Q4（10-12月）</div>
+                    <div class="timeline-title">🎊 品牌巩固期："年终大促，悦享洁净"</div>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>双11爆发，年度完美收官！</li>
+                            <li>阿悦扫地机，成为行业新势力！</li>
+                            <li>KPI：双11销售额1亿，年度销售额2亿</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 预算分配 -->
+        <div class="section">
+            <h2 class="section-title">💰 预算分配（钱花在刀刃上）</h2>
+            
+            <div class="card">
+                <h3>📊 全年预算：1.47亿元</h3>
+                <p style="margin-bottom: 20px;">整体ROI：1:1.36（每花1块钱，赚1.36块！）</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>项目</th>
+                            <th>预算</th>
+                            <th>占比</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>📱 抖音投放</td>
+                            <td><strong>3600万</strong></td>
+                            <td>
+                                <div class="budget-bar"><div class="budget-fill" style="width: 24.5%;">24.5%</div></div>
+                            </td>
+                            <td>核心流量渠道</td>
+                        </tr>
+                        <tr>
+                            <td>📝 KOL合作</td>
+                            <td><strong>2700万</strong></td>
+                            <td>
+                                <div class="budget-bar"><div class="budget-fill" style="width: 18.4%;">18.4%</div></div>
+                            </td>
+                            <td>头部+腰部+KOC矩阵</td>
+                        </tr>
+                        <tr>
+                            <td>🛒 天猫直通车</td>
+                            <td><strong>1700万</strong></td>
+                            <td>
+                                <div class="budget-bar"><div class="budget-fill" style="width: 11.6%;">11.6%</div></div>
+                            </td>
+                            <td>品牌形象主阵地</td>
+                        </tr>
+                        <tr>
+                            <td>🎬 直播投放</td>
+                            <td><strong>1600万</strong></td>
+                            <td>
+                                <div class="budget-bar"><div class="budget-fill" style="width: 10.9%;">10.9%</div></div>
+                            </td>
+                            <td>品牌自播+达人带货</td>
+                        </tr>
+                        <tr>
+                            <td>📕 小红书种草</td>
+                            <td><strong>1380万</strong></td>
+                            <td>
+                                <div class="budget-bar"><div class="budget-fill" style="width: 9.4%;">9.4%</div></div>
+                            </td>
+                            <td>核心种草渠道</td>
+                        </tr>
+                        <tr>
+                            <td>🎬 B站投放</td>
+                            <td><strong>510万</strong></td>
+                            <td>
+                                <div class="budget-bar"><div class="budget-fill" style="width: 3.5%;">3.5%</div></div>
+                            </td>
+                            <td>专业背书渠道</td>
+                        </tr>
+                        <tr>
+                            <td>📝 内容制作</td>
+                            <td><strong>550万</strong></td>
+                            <td>
+                                <div class="budget-bar"><div class="budget-fill" style="width: 3.7%;">3.7%</div></div>
+                            </td>
+                            <td>视频+图文内容</td>
+                        </tr>
+                        <tr>
+                            <td>📱 微信投放</td>
+                            <td><strong>270万</strong></td>
+                            <td>
+                                <div class="budget-bar"><div class="budget-fill" style="width: 1.8%;">1.8%</div></div>
+                            </td>
+                            <td>私域沉淀</td>
+                        </tr>
+                        <tr>
+                            <td>📦 其他</td>
+                            <td><strong>1940万</strong></td>
+                            <td>
+                                <div class="budget-bar"><div class="budget-fill" style="width: 13.2%;">13.2%</div></div>
+                            </td>
+                            <td>京东+用户运营</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 大促目标 -->
+        <div class="section">
+            <h2 class="section-title">🎯 大促目标（必达！）</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-number">5000万</div>
+                    <div class="stat-label">618销售额目标</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-number">1亿</div>
+                    <div class="stat-label">双11销售额目标</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-number">TOP8</div>
+                    <div class="stat-label">双11行业排名目标</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-number">1:1.36</div>
+                    <div class="stat-label">整体ROI目标</div>
+                </div>
+            </div>
+
+            <div class="fun-fact">
+                <p><strong>💡 小知识：</strong>双11销售额1亿是什么概念？相当于平均每秒卖出4台阿悦扫地机！🤯</p>
+            </div>
+        </div>
+
+        <!-- 渠道策略 -->
+        <div class="section">
+            <h2 class="section-title">📢 渠道策略（全覆盖）</h2>
+            
+            <div class="card">
+                <h3>📱 社交媒体矩阵</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>渠道</th>
+                            <th>定位</th>
+                            <th>目标</th>
+                            <th>月预算</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🎵 抖音</td>
+                            <td>核心流量渠道 💥</td>
+                            <td>粉丝100万，月播放5000万</td>
+                            <td>300万</td>
+                        </tr>
+                        <tr>
+                            <td>📕 小红书</td>
+                            <td>核心种草渠道 🌱</td>
+                            <td>粉丝30万，月曝光1000万</td>
+                            <td>150万</td>
+                        </tr>
+                        <tr>
+                            <td>📺 B站</td>
+                            <td>专业背书渠道 🎓</td>
+                            <td>粉丝20万，月播放500万</td>
+                            <td>100万</td>
+                        </tr>
+                        <tr>
+                            <td>💬 微信公众号</td>
+                            <td>私域沉淀渠道 🏠</td>
+                            <td>粉丝10万，月阅读200万</td>
+                            <td>50万</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight">
+                <h3>👥 KOL/KOC矩阵</h3>
+                <ul>
+                    <li><strong>头部KOL：</strong>10位（科技美学、小白测评、住范儿、狗头萝莉...）</li>
+                    <li><strong>腰部KOL：</strong>30位（科技/家居/养宠垂类）</li>
+                    <li><strong>KOC矩阵：</strong>500位（普通用户UGC + 品牌体验官）</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 风险控制 -->
+        <div class="section">
+            <h2 class="section-title">⚠️ 风险控制（有备无患）</h2>
+            
+            <div class="card">
+                <h3>🛡️ 应对措施</h3>
+                <ul>
+                    <li><strong>市场风险：</strong>持续监控竞品动态，灵活调整价格策略</li>
+                    <li><strong>执行风险：</strong>建立KOL评估体系，小规模测试后放量</li>
+                    <li><strong>供应链风险：</strong>提前锁定产能，建立备用供应商</li>
+                    <li><strong>口碑风险：</strong>严格品控，强化售后服务，及时处理差评</li>
+                </ul>
+            </div>
+
+            <div class="meme-box">
+                <div class="meme-emoji">😎</div>
+                <p>"最好的防守就是进攻！<br>
+                        阿悦要用产品力说话！"</p>
+            </div>
+        </div>
+
+        <!-- 团队配置 -->
+        <div class="section">
+            <h2 class="section-title">👨‍💼 团队配置（精兵强将）</h2>
+            
+            <div class="emoji-section">
+                <ul>
+                    <li><strong>品牌总监</strong>：整体策略与团队管理 👑</li>
+                    <li><strong>内容运营</strong>：抖音/小红书/B站/微信，内容策划+视频制作 📝</li>
+                    <li><strong>KOL/KOC合作</strong>：KOL商务+KOC运营 🤝</li>
+                    <li><strong>投放优化</strong>：投放专员+数据分析师 📊</li>
+                    <li><strong>电商运营</strong>：天猫运营+京东运营+抖音运营 🛒</li>
+                    <li><strong>用户运营</strong>：用户运营+客服售后 💬</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h2>🎉 2026，阿悦来了！</h2>
+            <p>我们不是来分蛋糕的，我们是来重新定义蛋糕的！</p>
+            <div style="margin-top: 20px; font-size: 14px; opacity: 0.9;">
+                <p><strong>执行团队：</strong>阿悦品牌团队</p>
+                <p><strong>版本：</strong>V2.0（可视化升级版）</p>
+                <p>让清洁成为享受，让家更自由！✨</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
