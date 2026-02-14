@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AYUE 阿悦很严格</title>
+    <title>AYUE 阿悦很严格 - AI自媒体</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
             --gray-4: #f5f5f7;
             --accent: #0071e3;
             --accent-hover: #0077ed;
+            --gradient: linear-gradient(135deg, #6e8efb, #a777e3);
         }
 
         * {
@@ -134,7 +135,7 @@
             font-weight: 600;
             letter-spacing: -0.03em;
             line-height: 1.08;
-            background: linear-gradient(90deg, #6e8efb, #a777e3);
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -150,7 +151,7 @@
             letter-spacing: -0.02em;
             line-height: 1.35;
             color: var(--gray-2);
-            max-width: 800px;
+            max-width: 700px;
             margin-bottom: 40px;
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
@@ -211,11 +212,10 @@
             background: radial-gradient(ellipse at center, rgba(167, 119, 227, 0.06) 0%, transparent 70%);
         }
 
-        /* ==================== 业务介绍 ==================== */
-        .business {
-            padding: 120px 24px;
-            background: var(--black);
-            color: var(--white);
+        /* ==================== 平台入口 ==================== */
+        .platforms {
+            padding: 100px 24px;
+            background: var(--gray-4);
         }
 
         .section-container {
@@ -225,7 +225,7 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .section-label {
@@ -238,188 +238,238 @@
         }
 
         .section-title {
-            font-size: clamp(40px, 8vw, 64px);
+            font-size: clamp(40px, 8vw, 56px);
             font-weight: 700;
             letter-spacing: -0.04em;
             line-height: 1.07;
-            color: var(--white);
+            color: var(--black);
         }
 
-        .business-grid {
+        .platforms-grid {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .platform-card {
+            width: 200px;
+            padding: 40px 24px;
+            background: var(--white);
+            border-radius: 24px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 60px rgba(0, 0, 0, 0.12);
+            border-color: rgba(110, 142, 251, 0.3);
+        }
+
+        .platform-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px;
+        }
+
+        .platform-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .platform-desc {
+            font-size: 14px;
+            color: var(--gray-1);
+        }
+
+        /* ==================== 内容预览 ==================== */
+        .content-preview {
+            padding: 100px 24px;
+            background: var(--white);
+        }
+
+        .videos-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
+            margin-top: 60px;
         }
 
-        .business-card {
-            padding: 48px 32px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        .video-card {
             position: relative;
+            border-radius: 20px;
             overflow: hidden;
+            background: var(--gray-4);
+            aspect-ratio: 9/16;
+            cursor: pointer;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
         }
 
-        .business-card::before {
-            content: '';
+        .video-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #6e8efb, #a777e3);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .business-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .business-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .business-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(110, 142, 251, 0.2), rgba(167, 119, 227, 0.2));
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            margin-bottom: 24px;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .business-title {
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 12px;
+        .video-card:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .play-button {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.8);
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover .play-button {
+            transform: scale(1);
+        }
+
+        .play-button svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--black);
+            margin-left: 4px;
+        }
+
+        .video-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
             color: var(--white);
         }
 
-        .business-desc {
-            font-size: 15px;
-            font-weight: 400;
-            line-height: 1.6;
-            color: var(--gray-3);
-        }
-
-        /* ==================== 特性展示 ==================== */
-        .features {
-            padding: 120px 24px;
-            background: var(--gray-4);
-        }
-
-        .features .section-title {
-            color: var(--black);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 48px;
-            margin-top: 80px;
-        }
-
-        .feature-card {
-            padding: 48px;
-            background: var(--white);
-            border-radius: 24px;
-            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-number {
-            font-size: 64px;
-            font-weight: 700;
-            color: rgba(0, 113, 227, 0.1);
-            line-height: 1;
-            margin-bottom: 16px;
-        }
-
-        .feature-title {
-            font-size: 28px;
+        .video-title {
+            font-size: 16px;
             font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 12px;
-            color: var(--black);
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        .feature-desc {
-            font-size: 17px;
-            line-height: 1.58;
-            color: var(--gray-2);
+        .video-platform {
+            font-size: 13px;
+            opacity: 0.8;
         }
 
-        /* ==================== 大标语区域 ==================== */
-        .manifesto {
-            padding: 160px 24px;
-            background: linear-gradient(180deg, var(--gray-4) 0%, var(--white) 100%);
+        /* ==================== 关于我 ==================== */
+        .about {
+            padding: 100px 24px;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .about .section-title {
+            color: var(--white);
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .manifesto-text {
-            font-size: clamp(32px, 6vw, 56px);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.15;
-            color: var(--black);
-            max-width: 900px;
-            margin: 0 auto 48px;
+        .about-text {
+            font-size: 21px;
+            line-height: 1.7;
+            color: var(--gray-3);
+            margin-bottom: 48px;
         }
 
-        .manifesto-text span {
-            background: linear-gradient(90deg, #6e8efb, #a777e3);
+        .about-stats {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            margin-top: 48px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .manifesto-sub {
-            font-size: 21px;
-            font-weight: 400;
-            line-height: 1.5;
-            color: var(--gray-2);
-            max-width: 600px;
-            margin: 0 auto;
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray-3);
+            margin-top: 8px;
         }
 
         /* ==================== 联系区域 ==================== */
         .contact {
-            padding: 120px 24px;
-            background: var(--black);
+            padding: 100px 24px;
+            background: linear-gradient(180deg, var(--black) 0%, #111 100%);
             text-align: center;
             color: var(--white);
         }
 
         .contact .section-title {
-            margin-bottom: 32px;
+            margin-bottom: 24px;
+            color: var(--white);
         }
 
         .contact-text {
-            font-size: 21px;
+            font-size: 19px;
             line-height: 1.5;
             color: var(--gray-3);
             max-width: 500px;
-            margin: 0 auto 48px;
+            margin: 0 auto 40px;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 24px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
@@ -444,7 +494,7 @@
         }
 
         .contact-link.primary {
-            background: linear-gradient(90deg, #6e8efb, #a777e3);
+            background: var(--gradient);
             border: none;
         }
 
@@ -491,6 +541,16 @@
             }
         }
 
+        /* 数字滚动动画 */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stat-number {
+            animation: countUp 0.6s ease forwards;
+        }
+
         /* 滚动动画 */
         .animate-on-scroll {
             opacity: 0;
@@ -505,14 +565,17 @@
 
         /* ==================== 响应式 ==================== */
         @media (max-width: 900px) {
-            .business-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
+            .videos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
+            .platforms-grid {
+                gap: 20px;
+            }
+
+            .about-stats {
+                gap: 40px;
             }
 
             .nav-links {
@@ -525,16 +588,32 @@
                 padding: 80px 20px 40px;
             }
 
-            .business, .features, .manifesto, .contact {
-                padding: 80px 20px;
+            .platforms, .content-preview, .about, .contact {
+                padding: 60px 20px;
             }
 
-            .business-card {
-                padding: 32px 24px;
+            .videos-grid {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+                margin: 40px auto 0;
             }
 
-            .feature-card {
-                padding: 32px;
+            .platform-card {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .about-stats {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .about-text {
+                font-size: 18px;
             }
         }
     </style>
@@ -545,10 +624,10 @@
         <div class="nav-content">
             <a href="#" class="nav-logo">AYUE</a>
             <ul class="nav-links">
-                <li><a href="#business">业务</a></li>
-                <li><a href="#features">优势</a></li>
-                <li><a href="#manifesto">理念</a></li>
-                <li><a href="#contact">联系</a></li>
+                <li><a href="#platforms">关注我</a></li>
+                <li><a href="#content-preview">精选内容</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#contact">联系合作</a></li>
             </ul>
         </div>
     </nav>
@@ -556,93 +635,121 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-bg"></div>
-        <p class="hero-overline">AI · 自媒体 · 3D打印</p>
+        <p class="hero-overline">AI · 教程 · 实战</p>
         <h1 class="hero-title">阿悦很严格</h1>
-        <p class="hero-headline">用科技赋能创意</p>
-        <p class="hero-subtitle">专注于AI技术科普、AI营销服务与3D打印创新应用，用严谨的态度呈现最前沿的技术实践。</p>
-        <a href="#business" class="hero-cta">
-            了解更多
+        <p class="hero-headline">让AI变得触手可及</p>
+        <p class="hero-subtitle">把复杂的AI工具变成手把手教程，让每个人都能学会、用上AI。<br>严格筛选，通俗易懂。</p>
+        <a href="#platforms" class="hero-cta">
+            立即关注
             <svg viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
             </svg>
         </a>
     </section>
 
-    <!-- 业务介绍 -->
-    <section class="business" id="business">
+    <!-- 平台入口 -->
+    <section class="platforms" id="platforms">
         <div class="section-container">
             <div class="section-header animate-on-scroll">
-                <p class="section-label">What We Do</p>
-                <h2 class="section-title">核心业务</h2>
+                <p class="section-label">Follow Me</p>
+                <h2 class="section-title">关注我</h2>
             </div>
 
-            <div class="business-grid">
-                <div class="business-card animate-on-scroll">
-                    <div class="business-icon">🤖</div>
-                    <h3 class="business-title">AI技术科普</h3>
-                    <p class="business-desc">深度解析人工智能前沿技术，用通俗易懂的语言讲述复杂概念，让每个人都能理解并拥抱AI时代。</p>
+            <div class="platforms-grid">
+                <a href="https://www.douyin.com/user/MS4wLjABAAAA" target="_blank" class="platform-card animate-on-scroll">
+                    <div class="platform-icon">🎵</div>
+                    <h3 class="platform-name">抖音</h3>
+                    <p class="platform-desc">@阿悦很严格</p>
+                </a>
+
+                <a href="https://space.bilibili.com/" target="_blank" class="platform-card animate-on-scroll">
+                    <div class="platform-icon">📺</div>
+                    <h3 class="platform-name">B站</h3>
+                    <p class="platform-desc">阿悦很严格</p>
+                </a>
+
+                <a href="https://weixin.qq.com/" target="_blank" class="platform-card animate-on-scroll">
+                    <div class="platform-icon">💬</div>
+                    <h3 class="platform-name">视频号</h3>
+                    <p class="platform-desc">阿悦很严格</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 内容预览 -->
+    <section class="content-preview" id="content-preview">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <p class="section-label">Featured Content</p>
+                <h2 class="section-title">精选内容</h2>
+            </div>
+
+            <div class="videos-grid">
+                <a href="https://www.douyin.com/video/7604454131541101830" target="_blank" class="video-card animate-on-scroll">
+                    <img src="images/video-cover-1.jpg" alt="视频封面">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <p class="video-title">AI教程视频</p>
+                        <p class="video-platform">抖音</p>
+                    </div>
+                </a>
+
+                <!-- 占位卡片 - 等待更多视频 -->
+                <div class="video-card animate-on-scroll" style="background: linear-gradient(135deg, #6e8efb20, #a777e320); display: flex; align-items: center; justify-content: center; cursor: default;">
+                    <div style="text-align: center; color: var(--gray-1);">
+                        <p style="font-size: 48px; margin-bottom: 12px;">🎬</p>
+                        <p style="font-size: 14px;">更多内容<br>敬请期待</p>
+                    </div>
                 </div>
 
-                <div class="business-card animate-on-scroll">
-                    <div class="business-icon">📊</div>
-                    <h3 class="business-title">AI营销服务</h3>
-                    <p class="business-desc">利用AI技术为品牌提供精准营销解决方案，从内容生成到用户画像，用数据驱动营销决策。</p>
-                </div>
-
-                <div class="business-card animate-on-scroll">
-                    <div class="business-icon">🖨️</div>
-                    <h3 class="business-title">3D打印应用</h3>
-                    <p class="business-desc">探索3D打印技术在各领域的创新应用，从原型设计到批量生产，让想象变为现实。</p>
+                <div class="video-card animate-on-scroll" style="background: linear-gradient(135deg, #6e8efb20, #a777e320); display: flex; align-items: center; justify-content: center; cursor: default;">
+                    <div style="text-align: center; color: var(--gray-1);">
+                        <p style="font-size: 48px; margin-bottom: 12px;">🎬</p>
+                        <p style="font-size: 14px;">更多内容<br>敬请期待</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 特性展示 -->
-    <section class="features" id="features">
+    <!-- 关于我 -->
+    <section class="about" id="about">
         <div class="section-container">
             <div class="section-header animate-on-scroll">
-                <p class="section-label">Why AYUE</p>
-                <h2 class="section-title">我们的优势</h2>
+                <p class="section-label">About Me</p>
+                <h2 class="section-title">关于阿悦</h2>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-number">01</div>
-                    <h3 class="feature-title">前沿视角</h3>
-                    <p class="feature-desc">始终站在技术最前沿，第一时间带来最新动态和深度分析。我们不只报道，更深度解读。</p>
-                </div>
+            <div class="about-content animate-on-scroll">
+                <p class="about-text">
+                    我是阿悦，一个对AI充满热情的创作者。<br><br>
+                    我相信AI不应该只是少数人的专利，而是每个人都能掌握的工具。<br>
+                    所以我用自己的方式——把复杂的技术概念变成一看就懂的教程。<br><br>
+                    「严格」是我的态度：严格筛选有价值的工具，严格把关内容的质量。
+                </p>
 
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-number">02</div>
-                    <h3 class="feature-title">精准定位</h3>
-                    <p class="feature-desc">深入了解目标受众，精准传达信息，打造有影响力的内容。每一条内容都经过精心打磨。</p>
-                </div>
-
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-number">03</div>
-                    <h3 class="feature-title">创新思维</h3>
-                    <p class="feature-desc">跨界融合AI、自媒体与3D打印，创造独特的内容价值。打破边界，定义新的可能。</p>
-                </div>
-
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-number">04</div>
-                    <h3 class="feature-title">严谨态度</h3>
-                    <p class="feature-desc">以科学精神对待每一个技术话题，确保信息的准确性与专业性。严格，是我们的底色。</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="1000">1,000+</div>
+                        <div class="stat-label">粉丝</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">平台</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">70,000+</div>
+                        <div class="stat-label">爆款播放</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 大标语 -->
-    <section class="manifesto" id="manifesto">
-        <div class="section-container">
-            <p class="manifesto-text animate-on-scroll">
-                AI路漫漫，<span>请期待我发回来的实时报道。</span>
-            </p>
-            <p class="manifesto-sub animate-on-scroll">
-                在这条充满未知的道路上，我们用严谨的态度和创新的思维，为你带来最真实、最前沿的AI与3D打印技术内容。
-            </p>
         </div>
     </section>
 
@@ -651,13 +758,12 @@
         <div class="section-container">
             <div class="animate-on-scroll">
                 <p class="section-label">Get in Touch</p>
-                <h2 class="section-title">联系我们</h2>
-                <p class="contact-text">期待与你一起探索AI与3D打印的无限可能</p>
+                <h2 class="section-title">联系合作</h2>
+                <p class="contact-text">品牌合作、内容定制、商务咨询<br>欢迎联系</p>
             </div>
             <div class="contact-links animate-on-scroll">
-                <a href="#" class="contact-link primary">合作咨询</a>
+                <a href="#" class="contact-link primary">商务合作</a>
                 <a href="#" class="contact-link">内容合作</a>
-                <a href="#" class="contact-link">加入我们</a>
             </div>
         </div>
     </section>
@@ -667,7 +773,6 @@
         <div class="footer-links">
             <a href="#">隐私政策</a>
             <a href="#">使用条款</a>
-            <a href="#">网站地图</a>
         </div>
         <p>© 2026 阿悦很严格 AYUE. All rights reserved.</p>
     </footer>
@@ -718,6 +823,34 @@
             
             lastScroll = currentScroll;
         });
+
+        // 数字滚动动画
+        function animateNumber(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 30);
+        }
+
+        // 监听数字元素进入视口
+        const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+        const numberObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.dataset.target);
+                    animateNumber(entry.target, target);
+                    numberObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(el => numberObserver.observe(el));
     </script>
 </body>
 </html>
