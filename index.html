@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AYUE 阿悦很严格 - AI自媒体</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>阿悦很严格 | AI自媒体</title>
     <style>
         :root {
-            --black: #1d1d1f;
-            --white: #fbfbfd;
-            --gray-1: #86868b;
-            --gray-2: #515154;
-            --gray-3: #d2d2d7;
-            --gray-4: #f5f5f7;
-            --accent: #0071e3;
-            --accent-hover: #0077ed;
             --gradient: linear-gradient(135deg, #6e8efb, #a777e3);
+            --black: #0a0a0a;
+            --white: #fbfbfd;
+            --gray-1: #6b7280;
+            --gray-3: #9ca3af;
+            --gray-4: #f3f4f6;
         }
 
         * {
@@ -26,18 +20,11 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
         body {
-            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            line-height: 1.47059;
-            letter-spacing: -0.022em;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--white);
             color: var(--black);
+            line-height: 1.5;
             overflow-x: hidden;
         }
 
@@ -47,31 +34,27 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 48px;
+            padding: 16px 24px;
             background: rgba(251, 251, 253, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
         }
 
         .nav-content {
-            max-width: 1024px;
-            width: 100%;
-            padding: 0 22px;
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .nav-logo {
-            font-size: 21px;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 700;
             color: var(--black);
-            letter-spacing: -0.02em;
             text-decoration: none;
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
@@ -81,141 +64,107 @@
         }
 
         .nav-links a {
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--black);
+            color: var(--gray-1);
             text-decoration: none;
-            letter-spacing: -0.01em;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            font-size: 15px;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            opacity: 1;
+            color: var(--black);
         }
 
-        /* ==================== Hero Section ==================== */
+        /* ==================== Hero ==================== */
         .hero {
-            min-height: 100vh;
+            position: relative;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: center;
-            align-items: center;
+            padding: 120px 24px 80px;
             text-align: center;
-            padding: 100px 24px 60px;
-            background: var(--white);
-            position: relative;
-            overflow: hidden;
         }
 
-        .hero-overline {
-            font-size: 17px;
-            font-weight: 500;
-            color: #6bf;
-            margin-bottom: 8px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-            animation-delay: 0.1s;
-        }
-
-        .hero-title {
-            font-size: clamp(48px, 10vw, 96px);
-            font-weight: 700;
-            letter-spacing: -0.05em;
-            line-height: 1.05;
-            color: var(--black);
-            margin-bottom: 16px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-            animation-delay: 0.2s;
-        }
-
-        .hero-headline {
-            font-size: clamp(24px, 5vw, 48px);
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            line-height: 1.08;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 24px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-            animation-delay: 0.3s;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(19px, 3vw, 28px);
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            line-height: 1.35;
-            color: var(--gray-2);
-            max-width: 700px;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-            animation-delay: 0.4s;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 17px;
-            font-weight: 400;
-            color: var(--accent);
-            text-decoration: none;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-            animation-delay: 0.5s;
-            transition: gap 0.3s;
-        }
-
-        .hero-cta:hover {
-            gap: 12px;
-        }
-
-        .hero-cta svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* 背景装饰 */
         .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: radial-gradient(ellipse at top, rgba(110, 142, 251, 0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom, rgba(167, 119, 227, 0.08) 0%, transparent 50%);
             pointer-events: none;
-            z-index: -1;
         }
 
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 80%;
-            height: 150%;
-            background: radial-gradient(ellipse at center, rgba(110, 142, 251, 0.08) 0%, transparent 70%);
+        .hero-overline {
+            font-size: 13px;
+            font-weight: 600;
+            color: #6b8fff;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 24px;
+            position: relative;
         }
 
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -20%;
-            width: 60%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(167, 119, 227, 0.06) 0%, transparent 70%);
+        .hero-title {
+            font-size: clamp(52px, 10vw, 72px);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            margin-bottom: 16px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
         }
 
-        /* ==================== 平台入口 ==================== */
-        .platforms {
+        .hero-headline {
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            color: var(--gray-1);
+            max-width: 480px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--gradient);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(110, 142, 251, 0.4);
+        }
+
+        /* ==================== 关于我 ==================== */
+        .about {
             padding: 100px 24px;
-            background: var(--gray-4);
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .about .section-title {
+            color: var(--white);
         }
 
         .section-container {
@@ -243,6 +192,51 @@
             letter-spacing: -0.04em;
             line-height: 1.07;
             color: var(--black);
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 21px;
+            line-height: 1.7;
+            color: var(--gray-3);
+            margin-bottom: 48px;
+        }
+
+        .about-stats {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            margin-top: 48px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray-3);
+            margin-top: 8px;
+        }
+
+        /* ==================== 平台入口 ==================== */
+        .platforms {
+            padding: 100px 24px;
+            background: var(--gray-4);
         }
 
         .platforms-grid {
@@ -395,56 +389,6 @@
             opacity: 0.8;
         }
 
-        /* ==================== 关于我 ==================== */
-        .about {
-            padding: 100px 24px;
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .about .section-title {
-            color: var(--white);
-        }
-
-        .about-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-text {
-            font-size: 21px;
-            line-height: 1.7;
-            color: var(--gray-3);
-            margin-bottom: 48px;
-        }
-
-        .about-stats {
-            display: flex;
-            justify-content: center;
-            gap: 64px;
-            margin-top: 48px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--gray-3);
-            margin-top: 8px;
-        }
-
         /* ==================== 联系区域 ==================== */
         .contact {
             padding: 100px 24px;
@@ -541,17 +485,6 @@
             }
         }
 
-        /* 数字滚动动画 */
-        @keyframes countUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .stat-number {
-            animation: countUp 0.6s ease forwards;
-        }
-
-        /* 滚动动画 */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(40px);
@@ -624,9 +557,9 @@
         <div class="nav-content">
             <a href="#" class="nav-logo">AYUE</a>
             <ul class="nav-links">
+                <li><a href="#about">关于我</a></li>
                 <li><a href="#platforms">关注我</a></li>
                 <li><a href="#content-preview">精选内容</a></li>
-                <li><a href="#about">关于我</a></li>
                 <li><a href="#contact">联系合作</a></li>
             </ul>
         </div>
@@ -647,78 +580,6 @@
         </a>
     </section>
 
-    <!-- 平台入口 -->
-    <section class="platforms" id="platforms">
-        <div class="section-container">
-            <div class="section-header animate-on-scroll">
-                <p class="section-label">Follow Me</p>
-                <h2 class="section-title">关注我</h2>
-            </div>
-
-            <div class="platforms-grid">
-                <a href="https://www.douyin.com/user/MS4wLjABAAAA" target="_blank" class="platform-card animate-on-scroll">
-                    <div class="platform-icon">🎵</div>
-                    <h3 class="platform-name">抖音</h3>
-                    <p class="platform-desc">@阿悦很严格</p>
-                </a>
-
-                <a href="https://space.bilibili.com/" target="_blank" class="platform-card animate-on-scroll">
-                    <div class="platform-icon">📺</div>
-                    <h3 class="platform-name">B站</h3>
-                    <p class="platform-desc">阿悦很严格</p>
-                </a>
-
-                <a href="https://weixin.qq.com/" target="_blank" class="platform-card animate-on-scroll">
-                    <div class="platform-icon">💬</div>
-                    <h3 class="platform-name">视频号</h3>
-                    <p class="platform-desc">阿悦很严格</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 内容预览 -->
-    <section class="content-preview" id="content-preview">
-        <div class="section-container">
-            <div class="section-header animate-on-scroll">
-                <p class="section-label">Featured Content</p>
-                <h2 class="section-title">精选内容</h2>
-            </div>
-
-            <div class="videos-grid">
-                <a href="https://www.douyin.com/video/7604454131541101830" target="_blank" class="video-card animate-on-scroll">
-                    <img src="images/video-cover-1.jpg" alt="视频封面">
-                    <div class="video-overlay">
-                        <div class="play-button">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <p class="video-title">AI教程视频</p>
-                        <p class="video-platform">抖音</p>
-                    </div>
-                </a>
-
-                <!-- 占位卡片 - 等待更多视频 -->
-                <div class="video-card animate-on-scroll" style="background: linear-gradient(135deg, #6e8efb20, #a777e320); display: flex; align-items: center; justify-content: center; cursor: default;">
-                    <div style="text-align: center; color: var(--gray-1);">
-                        <p style="font-size: 48px; margin-bottom: 12px;">🎬</p>
-                        <p style="font-size: 14px;">更多内容<br>敬请期待</p>
-                    </div>
-                </div>
-
-                <div class="video-card animate-on-scroll" style="background: linear-gradient(135deg, #6e8efb20, #a777e320); display: flex; align-items: center; justify-content: center; cursor: default;">
-                    <div style="text-align: center; color: var(--gray-1);">
-                        <p style="font-size: 48px; margin-bottom: 12px;">🎬</p>
-                        <p style="font-size: 14px;">更多内容<br>敬请期待</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 关于我 -->
     <section class="about" id="about">
         <div class="section-container">
@@ -737,7 +598,7 @@
 
                 <div class="about-stats">
                     <div class="stat-item">
-                        <div class="stat-number" data-target="1000">1,000+</div>
+                        <div class="stat-number">1,000+</div>
                         <div class="stat-label">粉丝</div>
                     </div>
                     <div class="stat-item">
@@ -749,6 +610,93 @@
                         <div class="stat-label">爆款播放</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关注我 -->
+    <section class="platforms" id="platforms">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <p class="section-label">Follow Me</p>
+                <h2 class="section-title">关注我</h2>
+            </div>
+
+            <div class="platforms-grid">
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAKvY_Y6_N7yYiTgVzi2MlRsb9BuziR0Xn7UOIn-VTfUZy-8oVlztvAkzAIbXZE7Kq?from_tab_name=main&vid=7599655068664728875" target="_blank" class="platform-card animate-on-scroll">
+                    <div class="platform-icon">🎵</div>
+                    <h3 class="platform-name">抖音</h3>
+                    <p class="platform-desc">@阿悦很严格</p>
+                </a>
+
+                <a href="https://space.bilibili.com/" target="_blank" class="platform-card animate-on-scroll">
+                    <div class="platform-icon">📺</div>
+                    <h3 class="platform-name">B站</h3>
+                    <p class="platform-desc">阿悦很严格</p>
+                </a>
+
+                <a href="https://mp.weixin.qq.com/s/cKYSJ68m7qo-kzbOnCEL8A" target="_blank" class="platform-card animate-on-scroll">
+                    <div class="platform-icon">💬</div>
+                    <h3 class="platform-name">视频号</h3>
+                    <p class="platform-desc">阿悦很严格</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精选内容 -->
+    <section class="content-preview" id="content-preview">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <p class="section-label">Featured Content</p>
+                <h2 class="section-title">精选内容</h2>
+            </div>
+
+            <div class="videos-grid">
+                <a href="https://www.douyin.com/video/7604454131541101830" target="_blank" class="video-card animate-on-scroll">
+                    <img src="images/video-cover-1.png" alt="视频封面1">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <p class="video-title">AI教程视频</p>
+                        <p class="video-platform">抖音</p>
+                    </div>
+                </a>
+
+                <a href="https://www.douyin.com/video/7593284150703033663" target="_blank" class="video-card animate-on-scroll">
+                    <img src="images/video-cover-2.png" alt="视频封面2">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <p class="video-title">AI教程视频</p>
+                        <p class="video-platform">抖音</p>
+                    </div>
+                </a>
+
+                <a href="https://www.douyin.com/video/7599655068664728875" target="_blank" class="video-card animate-on-scroll">
+                    <img src="images/video-cover-3.png" alt="视频封面3">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <p class="video-title">AI教程视频</p>
+                        <p class="video-platform">抖音</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -823,34 +771,6 @@
             
             lastScroll = currentScroll;
         });
-
-        // 数字滚动动画
-        function animateNumber(element, target) {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current).toLocaleString();
-            }, 30);
-        }
-
-        // 监听数字元素进入视口
-        const statNumbers = document.querySelectorAll('.stat-number[data-target]');
-        const numberObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.dataset.target);
-                    animateNumber(entry.target, target);
-                    numberObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        statNumbers.forEach(el => numberObserver.observe(el));
     </script>
 </body>
 </html>
